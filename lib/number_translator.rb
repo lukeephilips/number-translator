@@ -8,6 +8,7 @@ class Fixnum
     output = ""
     final_output = ""
 
+# Test for negatives
     if self <0
       num_string_array = []
       num_string_array = num_string.split("")
@@ -17,12 +18,74 @@ class Fixnum
       negative_prefix.concat("negative ")
     end
 
-    num_array = num_string.split("").reverse!()
+    num_array = num_string.split("")
     length = num_array.length()
 
     if length <= 3
-      number_to_pass_to_submethod = num_array.reverse().join().to_i()
-      output_from_submethod = number_to_pass_to_submethod.three_digit_test()
+      input_three_dig= num_array.join().to_i()
+      output_from_submethod = input_three_dig.three_digit_test()
+
+    elsif length <= 6
+      digits1to3Array = []
+      digits4to6Array = []
+
+      digits1to3Array.push(num_array.pop(3))
+      digits4to6Array.push(num_array)
+
+      input_three_dig = digits1to3Array.join().to_i()
+      output_three_dig= input_three_dig.three_digit_test()
+
+      input_six_dig = digits4to6Array.join().to_i()
+      output_six_dig = input_six_dig.three_digit_test()
+
+      output_from_submethod = output_six_dig + " thousand " + output_three_dig
+
+    elsif length <= 9
+      digits1to3Array = []
+      digits4to6Array = []
+      digits7to9Array = []
+
+      digits1to3Array.push(num_array.pop(3))
+      digits4to6Array.push(num_array.pop(3))
+      digits7to9Array.push(num_array)
+
+      input_three_dig = digits1to3Array.join().to_i()
+      output_three_dig= input_three_dig.three_digit_test()
+
+      input_six_dig = digits4to6Array.join().to_i()
+      output_six_dig = input_six_dig.three_digit_test()
+
+      input_nine_dig = digits7to9Array.join().to_i()
+      output_nine_dig = input_nine_dig.three_digit_test()
+
+      output_from_submethod = output_nine_dig + " million " + output_six_dig + " thousand " + output_three_dig
+
+    elsif length <= 12
+      digits1to3Array = []
+      digits4to6Array = []
+      digits7to9Array = []
+      digits10to12Array = []
+
+      digits1to3Array.push(num_array.pop(3))
+      digits4to6Array.push(num_array.pop(3))
+      digits7to9Array.push(num_array.pop(3))
+      digits10to12Array.push(num_array)
+
+      input_three_dig = digits1to3Array.join().to_i()
+      output_three_dig= input_three_dig.three_digit_test()
+
+      input_six_dig = digits4to6Array.join().to_i()
+      output_six_dig = input_six_dig.three_digit_test()
+
+      input_nine_dig = digits7to9Array.join().to_i()
+      output_nine_dig = input_nine_dig.three_digit_test()
+
+      input_twelve_dig = digits10to12Array.join().to_i()
+      output_twelve_dig = input_twelve_dig.three_digit_test()
+
+      output_from_submethod = output_twelve_dig + " billion " + output_nine_dig + " million " + output_six_dig + " thousand " + output_three_dig
+
+
     end
 
     final_output = negative_prefix.concat(output_from_submethod)
@@ -112,7 +175,7 @@ class Fixnum
     output_word
   end
 end
-
+#
 # class Fixnum
 #   define_method(:six_digit_test)
 #     six_digit_output_string = ""

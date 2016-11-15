@@ -8,6 +8,30 @@ describe('Fixnum#initial_test') do
   it ("returns word form of value at index[0] point of array (ones digit of input number) prepended with 'negative' if value is negative ") do
     expect((-2).initial_test()).to(eq("negative two"))
   end
+  it ("returns word form of value for numbers with length 4-6") do
+    expect((1235).initial_test()).to(eq("one thousand two hundred thirty five"))
+  end
+  it ("returns word form of value for numbers with length 4-6") do
+    expect((12235).initial_test()).to(eq("twelve thousand two hundred thirty five"))
+  end
+  it ("returns word form of value for numbers with length 4-6") do
+    expect((112235).initial_test()).to(eq("one hundred twelve thousand two hundred thirty five"))
+  end
+  it ("returns word form of value for numbers with length 4-6") do
+    expect((-112235).initial_test()).to(eq("negative one hundred twelve thousand two hundred thirty five"))
+  end
+  it ("returns word form of value for numbers with length 4-6") do
+    expect((1112235).initial_test()).to(eq("one million one hundred twelve thousand two hundred thirty five"))
+  end
+  it ("returns word form of value for numbers with length 4-6") do
+    expect((-100112235).initial_test()).to(eq("negative one hundred million one hundred twelve thousand two hundred thirty five"))
+  end
+  it ("returns word form of value for numbers with length 4-6") do
+    expect((100100112235).initial_test()).to(eq("one hundred billion one hundred million one hundred twelve thousand two hundred thirty five"))
+  end
+  it ("returns word form of value for numbers with length 4-6") do
+    expect((999999999999).initial_test()).to(eq("nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"))
+  end
 end
 
 describe('Fixnum#three_digit_test') do
