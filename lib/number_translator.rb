@@ -1,7 +1,5 @@
-
-
 class Fixnum
-  define_method(:translate) do
+  define_method(:three_digit_test) do
     # onesHash = Hash.new()
     onesHash = {"1" => "one",
                 "2" => "two",
@@ -64,25 +62,16 @@ class Fixnum
         output_word = tens_word
 
     if length >= 3
-        hundreds_digit = ""
-        hundreds_digit_int = hundreds_digit.concat(num_array[2]+ num_array[1]).to_i
 
-          if num_array[1] == "0" and num_array[0] == "0"
-          hundreds_word = onesHash.fetch(num_array[2]) + " hundred"
-          elsif num_array[1] == "0" and num_array[0].to_i >= 1
-          hundreds_word = onesHash.fetch(num_array[2]) + " hundred " + ones_word
-          elsif num_array[1].to_i >= 1
-          hundreds_word = onesHash.fetch(num_array[2]) + " hundred " + tens_word
-        end
-      output_word = hundreds_word
+      if num_array[1] == "0" and num_array[0] == "0"
+      hundreds_word = onesHash.fetch(num_array[2]) + " hundred"
+      elsif num_array[1] == "0" and num_array[0].to_i >= 1
+      hundreds_word = onesHash.fetch(num_array[2]) + " hundred " + ones_word
+      elsif num_array[1].to_i >= 1
+      hundreds_word = onesHash.fetch(num_array[2]) + " hundred " + tens_word
+      end
+    output_word = hundreds_word
     end
-
-    if length >= 3
-
-    end
-
-
-
     else length=1
       if num_array == ["0"]
         output_word = "zero"
@@ -93,3 +82,9 @@ class Fixnum
     final_output = negative_prefix.concat(output_word)
   end
 end
+
+# class String
+#   define_method(:translate)
+#
+#   end
+# end

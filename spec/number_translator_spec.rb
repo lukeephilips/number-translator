@@ -2,59 +2,59 @@ require('rspec')
 require('pry')
 require('number_translator')
 
-describe('Fixnum#translate') do
+describe('Fixnum#three_digit_test') do
   # it ("returns a string with number") do
-  #   expect(12.translate()).to(eq("12"))
+  #   expect(12.three_digit_test()).to(eq("12"))
   # end
   # it ("returns an array of each digit of number") do
-  #   expect(12.translate()).to(eq(["1","2"]))
+  #   expect(12.three_digit_test()).to(eq(["1","2"]))
   # end
   # it ("returns a reverse array of each digit of number") do
-  #   expect(12.translate()).to(eq(["2","1"]))
+  #   expect(12.three_digit_test()).to(eq(["2","1"]))
   # end
   # it ("returns length of array") do
-  #   expect(12.translate()).to(eq(2))
+  #   expect(12.three_digit_test()).to(eq(2))
   # end
   # it ("returns value at index[0] point of array (ones digit of input number)") do
-  #   expect(12.translate()).to(eq("2"))
+  #   expect(12.three_digit_test()).to(eq("2"))
   # end
   it ("returns word form of value at index[0] point of array (ones digit of input number)") do
-    expect(2.translate()).to(eq("two"))
+    expect(2.three_digit_test()).to(eq("two"))
   end
   it ("returns 'zero' if value equals 0") do
-    expect(0.translate()).to(eq("zero"))
+    expect(0.three_digit_test()).to(eq("zero"))
   end
   it ("returns word form of value at index[0] point of array (ones digit of input number) prepended with 'negative' if value is negative ") do
-    expect((-2).translate()).to(eq("negative two"))
+    expect((-2).three_digit_test()).to(eq("negative two"))
   end
 #END ONES
 
   it ("returns word form of value for arrays holding numbers ten through twelve") do
-    expect(12.translate()).to(eq("twelve"))
+    expect(12.three_digit_test()).to(eq("twelve"))
   end
   it ("returns word form of value for arrays holding numbers thirteen through nineteen") do
-    expect(16.translate()).to(eq("sixteen"))
+    expect(16.three_digit_test()).to(eq("sixteen"))
   end
   it ("returns word form of value for index[1] when value is equal to 2 - 9") do
-    expect(20.translate()).to(eq("twenty"))
+    expect(20.three_digit_test()).to(eq("twenty"))
   end
   it ("concatinates word-string output of numbers where index[1] equals 2-9 with word-string at index[0] to produce complete word. Inserts space between word-numbers") do
-    expect(99.translate()).to(eq("ninety nine"))
+    expect(99.three_digit_test()).to(eq("ninety nine"))
   end
 #END TENS
 
   it ("concatinates word-string from ones-digit hash of value at index[2] point of array with  string 'hundred'") do
-    expect(100.translate()).to(eq("one hundred"))
+    expect(100.three_digit_test()).to(eq("one hundred"))
   end
   it ("concatinates word-string of value at index[2] with word-string of value at index points [1] and [0]") do
-    expect(333.translate()).to(eq("three hundred thirty three"))
+    expect(333.three_digit_test()).to(eq("three hundred thirty three"))
   end
 #END HUNDREDS
   # it ("concatinates word-string from ones-digit hash of value at index[3] point of array with  string 'thousand'") do
-  #   expect(1205.translate()).to(eq(["one thousand"]))
+  #   expect(1000.three_digit_test()).to(eq("one thousand"))
   # end
   # it ("concatinates word-string of value at index[3] with word-string of value at index points [2] through [0]") do
-  #   expect(1205.translate()).to(eq(["one thousand two hundred five"]))
+  #   expect(1205.three_digit_test()).to(eq(["one thousand two hundred five"]))
   # end
 
 # #END Ones-Class of THOUSANDS
