@@ -1,6 +1,14 @@
 require('rspec')
 require('pry')
 require('number_translator')
+describe('Fixnum#initial_test') do
+  it("removes negatives and calls three_digit_test for numbers three digits or less") do
+    expect(16.initial_test()).to(eq("sixteen"))
+  end
+  it ("returns word form of value at index[0] point of array (ones digit of input number) prepended with 'negative' if value is negative ") do
+    expect((-2).initial_test()).to(eq("negative two"))
+  end
+end
 
 describe('Fixnum#three_digit_test') do
   # it ("returns a string with number") do
