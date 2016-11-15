@@ -22,9 +22,7 @@ describe('Fixnum#translate') do
     expect(2.translate()).to(eq("two"))
   end
 #END ONES
-  # it ("returns value at index[1] point of array (tens digit of input number)") do
-  #   expect(12.translate()).to(eq("1"))
-  # end
+
   it ("returns word form of value for arrays holding numbers ten through twelve") do
     expect(12.translate()).to(eq("twelve"))
   end
@@ -37,20 +35,14 @@ describe('Fixnum#translate') do
   it ("concatinates word-string output of numbers where index[1] equals 2-9 with word-string at index[0] to produce complete word. Inserts space between word-numbers") do
     expect(99.translate()).to(eq("ninety nine"))
   end
-# #END TENS
-#   it ("returns value at index[2] point of array (hundreds digit of input number)") do
-#     expect(125.translate()).to(eq(["1"]))
-#   end
-#
-#   it ("returns word-string from ones-digit hash of value at index[2] point of array") do
-#     expect(125.translate()).to(eq(["one"]))
-#   end
-#   it ("concatinates word-string from ones-digit hash of value at index[2] point of array with  string 'hundred'") do
-#     expect(125.translate()).to(eq(["one hundred"]))
-#   end
-#   it ("concatinates word-string of value at index[2] with word-string of value at index points [1] and [0]") do
-#     expect(125.translate()).to(eq(["one hundred"]))
-#   end
+#END TENS
+
+  it ("concatinates word-string from ones-digit hash of value at index[2] point of array with  string 'hundred'") do
+    expect(100.translate()).to(eq("one hundred"))
+  end
+  it ("concatinates word-string of value at index[2] with word-string of value at index points [1] and [0]") do
+    expect(125.translate()).to(eq("one hundred twenty five"))
+  end
 # #END HUNDREDS
 #   it ("returns value at index[3] point of array (ones digit of input number)") do
 #     expect(1205.translate()).to(eq(["1"]))
