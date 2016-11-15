@@ -9,12 +9,16 @@ class Fixnum
     final_output = ""
 
 # Test for negatives
+digits1to3Array = []
+digits4to6Array = []
+digits7to9Array = []
+digits10to12Array = []
+
     if self <0
       num_string_array = []
       num_string_array = num_string.split("")
       num_string_array.shift()
       num_string = num_string_array.join("")
-      # num_string = num_string_array.push(num_string).shift()
       negative_prefix.concat("negative ")
     end
 
@@ -22,72 +26,35 @@ class Fixnum
     length = num_array.length()
 
     if length <= 3
-      input_three_dig= num_array.join().to_i()
-      output_from_submethod = input_three_dig.three_digit_test()
-
+      output_from_submethod = num_array.join().to_i().three_digit_test()
     elsif length <= 6
-      digits1to3Array = []
-      digits4to6Array = []
-
       digits1to3Array.push(num_array.pop(3))
       digits4to6Array.push(num_array)
 
-      input_three_dig = digits1to3Array.join().to_i()
-      output_three_dig= input_three_dig.three_digit_test()
-
-      input_six_dig = digits4to6Array.join().to_i()
-      output_six_dig = input_six_dig.three_digit_test()
-
+      output_three_dig= digits1to3Array.join().to_i().three_digit_test()
+      output_six_dig = digits4to6Array.join().to_i().three_digit_test()
       output_from_submethod = output_six_dig + " thousand " + output_three_dig
-
     elsif length <= 9
-      digits1to3Array = []
-      digits4to6Array = []
-      digits7to9Array = []
-
       digits1to3Array.push(num_array.pop(3))
       digits4to6Array.push(num_array.pop(3))
       digits7to9Array.push(num_array)
 
-      input_three_dig = digits1to3Array.join().to_i()
-      output_three_dig= input_three_dig.three_digit_test()
-
-      input_six_dig = digits4to6Array.join().to_i()
-      output_six_dig = input_six_dig.three_digit_test()
-
-      input_nine_dig = digits7to9Array.join().to_i()
-      output_nine_dig = input_nine_dig.three_digit_test()
-
+      output_three_dig= digits1to3Array.join().to_i().three_digit_test()
+      output_six_dig = digits4to6Array.join().to_i().three_digit_test()
+      output_nine_dig = digits7to9Array.join().to_i().three_digit_test()
       output_from_submethod = output_nine_dig + " million " + output_six_dig + " thousand " + output_three_dig
-
     elsif length <= 12
-      digits1to3Array = []
-      digits4to6Array = []
-      digits7to9Array = []
-      digits10to12Array = []
-
       digits1to3Array.push(num_array.pop(3))
       digits4to6Array.push(num_array.pop(3))
       digits7to9Array.push(num_array.pop(3))
       digits10to12Array.push(num_array)
 
-      input_three_dig = digits1to3Array.join().to_i()
-      output_three_dig= input_three_dig.three_digit_test()
-
-      input_six_dig = digits4to6Array.join().to_i()
-      output_six_dig = input_six_dig.three_digit_test()
-
-      input_nine_dig = digits7to9Array.join().to_i()
-      output_nine_dig = input_nine_dig.three_digit_test()
-
-      input_twelve_dig = digits10to12Array.join().to_i()
-      output_twelve_dig = input_twelve_dig.three_digit_test()
-
+      output_three_dig= digits1to3Array.join().to_i().three_digit_test()
+      output_six_dig = digits4to6Array.join().to_i().three_digit_test()
+      output_nine_dig = digits7to9Array.join().to_i().three_digit_test()
+      output_twelve_dig = digits10to12Array.join().to_i().three_digit_test()
       output_from_submethod = output_twelve_dig + " billion " + output_nine_dig + " million " + output_six_dig + " thousand " + output_three_dig
-
-
     end
-
     final_output = negative_prefix.concat(output_from_submethod)
   end
 end
@@ -95,41 +62,12 @@ end
 class Fixnum
   define_method(:three_digit_test) do
     # onesHash = Hash.new()
-    onesHash = {"1" => "one",
-                "2" => "two",
-                "3" => "three",
-                "4" => "four",
-                "5" => "five",
-                "6" => "six",
-                "7" => "seven",
-                "8" => "eight",
-                "9" => "nine",
-                "0" => "" }
-      preteensHash = {"10" => "ten",
-                      "11" => "eleven",
-                      "12" => "twelve"}
-      prefixHash = {
-                "2" => "twen",
-                "3" => "thir",
-                "4" => "four",
-                "5" => "fif",
-                "6" => "six",
-                "7" => "seven",
-                "8" => "eight",
-                "9" => "nine"}
-
-
+    onesHash = {"1" => "one","2" => "two", "3" => "three","4" => "four","5" => "five","6" => "six","7" => "seven","8" => "eight","9" => "nine","0" => "" }
+    preteensHash = {"10" => "ten","11" => "eleven","12" => "twelve"}
+      prefixHash = {"2" => "twen", "3" => "thir","4" => "four","5" => "fif","6" => "six","7" => "seven","8" => "eight","9" => "nine"}
     num_string = self.to_s()
     negative_prefix= ""
     num_array= []
-    # if self <0
-    #   num_string_array = []
-    #   num_string_array = num_string.split("")
-    #   num_string_array.shift()
-    #   num_string = num_string_array.join("")
-    #   # num_string = num_string_array.push(num_string).shift()
-    #   negative_prefix.concat("negative ")
-    # end
     output_word= ""
 
     num_array = num_string.split("").reverse!()
@@ -155,7 +93,6 @@ class Fixnum
         output_word = tens_word
 
     if length >= 3
-
       if num_array[1] == "0" and num_array[0] == "0"
       hundreds_word = onesHash.fetch(num_array[2]) + " hundred"
       elsif num_array[1] == "0" and num_array[0].to_i >= 1
@@ -175,12 +112,3 @@ class Fixnum
     output_word
   end
 end
-#
-# class Fixnum
-#   define_method(:six_digit_test)
-#     six_digit_output_string = ""
-#     digits1-3Array =[]
-#     digits4-6Array =[]
-#     six_digit_output_string = digits4-6Array.three_digit_test() + " thousand " + digits1-3Array.three_digit_test()
-#   end
-# end
