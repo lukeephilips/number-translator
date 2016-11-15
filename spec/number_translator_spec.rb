@@ -21,6 +21,12 @@ describe('Fixnum#translate') do
   it ("returns word form of value at index[0] point of array (ones digit of input number)") do
     expect(2.translate()).to(eq("two"))
   end
+  it ("returns 'zero' if value equals 0") do
+    expect(0.translate()).to(eq("zero"))
+  end
+  it ("returns word form of value at index[0] point of array (ones digit of input number) prepended with 'negative' if value is negative ") do
+    expect((-2).translate()).to(eq("negative two"))
+  end
 #END ONES
 
   it ("returns word form of value for arrays holding numbers ten through twelve") do
@@ -41,22 +47,16 @@ describe('Fixnum#translate') do
     expect(100.translate()).to(eq("one hundred"))
   end
   it ("concatinates word-string of value at index[2] with word-string of value at index points [1] and [0]") do
-    expect(125.translate()).to(eq("one hundred twenty five"))
+    expect(333.translate()).to(eq("three hundred thirty three"))
   end
-# #END HUNDREDS
-#   it ("returns value at index[3] point of array (ones digit of input number)") do
-#     expect(1205.translate()).to(eq(["1"]))
-#   end
-#   it ("returns word form of value at index[3] point of array (ones digit of input number)") do
-#     expect(1205.translate()).to(eq(["one"]))
-#   end
-#   it ("concatinates word-string from ones-digit hash of value at index[3] point of array with  string 'thousand'") do
-#     expect(1205.translate()).to(eq(["one thousand"]))
-#   end
-#   it ("concatinates word-string of value at index[3] with word-string of value at index points [2] through [0]") do
-#     expect(1205.translate()).to(eq(["one thousand two hundred five"]))
-#   end
-#
+#END HUNDREDS
+  # it ("concatinates word-string from ones-digit hash of value at index[3] point of array with  string 'thousand'") do
+  #   expect(1205.translate()).to(eq(["one thousand"]))
+  # end
+  # it ("concatinates word-string of value at index[3] with word-string of value at index points [2] through [0]") do
+  #   expect(1205.translate()).to(eq(["one thousand two hundred five"]))
+  # end
+
 # #END Ones-Class of THOUSANDS
 #   it ("returns value at index[4] point of array (tens digit of input number)") do
 #     expect(12005.translate()).to(eq(["1"]))
