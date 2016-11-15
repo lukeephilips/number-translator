@@ -31,12 +31,12 @@ describe('Fixnum#translate') do
   it ("returns word form of value for arrays holding numbers thirteen through nineteen") do
     expect(16.translate()).to(eq("sixteen"))
   end
-  # it ("returns word form of value for index[1] when value is equal to 2 - 9") do
-  #   expect(22.translate()).to(eq("twenty"))
-  # end
-  # it ("concatinates word-string output of numbers where index[1] equals 2-9 with word-string at index[0] to produce complete word. Inserts space between word-numbers") do
-  #   expect(32.translate()).to(eq(["thirty two"]))
-  # end
+  it ("returns word form of value for index[1] when value is equal to 2 - 9") do
+    expect(20.translate()).to(eq("twenty"))
+  end
+  it ("concatinates word-string output of numbers where index[1] equals 2-9 with word-string at index[0] to produce complete word. Inserts space between word-numbers") do
+    expect(99.translate()).to(eq("ninety nine"))
+  end
 # #END TENS
 #   it ("returns value at index[2] point of array (hundreds digit of input number)") do
 #     expect(125.translate()).to(eq(["1"]))

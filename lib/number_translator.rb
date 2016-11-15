@@ -43,8 +43,10 @@ class Fixnum
         output_word = PreteensHash.fetch(tens_digit)
       elsif tens_digit_int>=13 and tens_digit_int<=19
         output_word = PrefixHash.fetch(num_array[0])+"teen"
-      elsif num_array[1].to_i>=2
+      elsif num_array[1].to_i>=2 and num_array[0]=="0"
         output_word = PrefixHash.fetch(num_array[1])+"ty"
+      elsif num_array[1].to_i>=2
+        output_word = PrefixHash.fetch(num_array[1])+"ty"+" "+ones_digit
       end
     else
     output_word = ones_digit
