@@ -32,9 +32,6 @@ describe('Fixnum#three_digit_test') do
   it ("returns 'zero' if value equals 0") do
     expect(0.three_digit_test()).to(eq("zero"))
   end
-  it ("returns word form of value at index[0] point of array (ones digit of input number) prepended with 'negative' if value is negative ") do
-    expect((-2).three_digit_test()).to(eq("negative two"))
-  end
 #END ONES
 
   it ("returns word form of value for arrays holding numbers ten through twelve") do

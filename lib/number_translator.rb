@@ -59,15 +59,14 @@ class Fixnum
     num_string = self.to_s()
     negative_prefix= ""
     num_array= []
-    if self <0
-      num_string_array = []
-      num_string_array = num_string.split("")
-      num_string_array.shift()
-      num_string = num_string_array.join("")
-      # num_string = num_string_array.push(num_string).shift()
-      negative_prefix.concat("negative ")
-    end
-    num_string
+    # if self <0
+    #   num_string_array = []
+    #   num_string_array = num_string.split("")
+    #   num_string_array.shift()
+    #   num_string = num_string_array.join("")
+    #   # num_string = num_string_array.push(num_string).shift()
+    #   negative_prefix.concat("negative ")
+    # end
     output_word= ""
 
     num_array = num_string.split("").reverse!()
@@ -110,7 +109,7 @@ class Fixnum
         output_word = ones_word
       end
     end
-    final_output = negative_prefix.concat(output_word)
+    output_word
   end
 end
 
