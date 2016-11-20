@@ -1,40 +1,41 @@
 require('rspec')
 require('pry')
+require('pry-doc')
 require('number_translator')
-describe('Fixnum#initial_test') do
+describe('String#initial_test') do
   it("removes negatives and calls three_digit_test for numbers three digits or less") do
-    expect(16.initial_test()).to(eq("sixteen"))
+    expect('16'.initial_test()).to(eq("sixteen"))
   end
   it ("returns word form of value at index[0] point of array (ones digit of input number) prepended with 'negative' if value is negative ") do
-    expect((-2).initial_test()).to(eq("negative two"))
+    expect(('-2').initial_test()).to(eq("negative two"))
   end
   it ("returns word form of value for numbers with length 4-6") do
-    expect((1235).initial_test()).to(eq("one thousand two hundred thirty five"))
+    expect(('1235').initial_test()).to(eq("one thousand two hundred thirty five"))
   end
   it ("returns word form of value for numbers with length 4-6") do
-    expect((12235).initial_test()).to(eq("twelve thousand two hundred thirty five"))
+    expect(('12235').initial_test()).to(eq("twelve thousand two hundred thirty five"))
   end
   it ("returns word form of value for numbers with length 4-6") do
-    expect((112235).initial_test()).to(eq("one hundred twelve thousand two hundred thirty five"))
+    expect(('112235').initial_test()).to(eq("one hundred twelve thousand two hundred thirty five"))
   end
   it ("returns word form of value for numbers with length 4-6") do
-    expect((-112235).initial_test()).to(eq("negative one hundred twelve thousand two hundred thirty five"))
+    expect(('-112235').initial_test()).to(eq("negative one hundred twelve thousand two hundred thirty five"))
   end
   it ("returns word form of value for numbers with length 4-6") do
-    expect((1112235).initial_test()).to(eq("one million one hundred twelve thousand two hundred thirty five"))
+    expect(('1112235').initial_test()).to(eq("one million one hundred twelve thousand two hundred thirty five"))
   end
   it ("returns word form of value for numbers with length 4-6") do
-    expect((-100112235).initial_test()).to(eq("negative one hundred million one hundred twelve thousand two hundred thirty five"))
+    expect(('-100112235').initial_test()).to(eq("negative one hundred million one hundred twelve thousand two hundred thirty five"))
   end
   it ("returns word form of value for numbers with length 4-6") do
-    expect((100100112235).initial_test()).to(eq("one hundred billion one hundred million one hundred twelve thousand two hundred thirty five"))
+    expect(('100100112235').initial_test()).to(eq("one hundred billion one hundred million one hundred twelve thousand two hundred thirty five"))
   end
   it ("returns word form of value for numbers with length 4-6") do
-    expect((999999999999).initial_test()).to(eq("nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"))
+    expect(('999999999999').initial_test()).to(eq("nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"))
   end
 end
 
-describe('Fixnum#three_digit_test') do
+describe('Array#three_digit_test') do
   # it ("returns a string with number") do
   #   expect(12.three_digit_test()).to(eq("12"))
   # end
@@ -51,32 +52,32 @@ describe('Fixnum#three_digit_test') do
   #   expect(12.three_digit_test()).to(eq("2"))
   # end
   it ("returns word form of value at index[0] point of array (ones digit of input number)") do
-    expect(2.three_digit_test()).to(eq("two"))
+    expect(["2"].three_digit_test()).to(eq("two"))
   end
   it ("returns 'zero' if value equals 0") do
-    expect(0.three_digit_test()).to(eq("zero"))
+    expect(["0"].three_digit_test()).to(eq("zero"))
   end
 #END ONES
 
   it ("returns word form of value for arrays holding numbers ten through twelve") do
-    expect(12.three_digit_test()).to(eq("twelve"))
+    expect(['2','1'].three_digit_test()).to(eq("twelve"))
   end
   it ("returns word form of value for arrays holding numbers thirteen through nineteen") do
-    expect(16.three_digit_test()).to(eq("sixteen"))
+    expect(['6','1'].three_digit_test()).to(eq("sixteen"))
   end
   it ("returns word form of value for index[1] when value is equal to 2 - 9") do
-    expect(20.three_digit_test()).to(eq("twenty"))
+    expect(['0','2'].three_digit_test()).to(eq("twenty"))
   end
   it ("concatinates word-string output of numbers where index[1] equals 2-9 with word-string at index[0] to produce complete word. Inserts space between word-numbers") do
-    expect(99.three_digit_test()).to(eq("ninety nine"))
+    expect(['9','9'].three_digit_test()).to(eq("ninety nine"))
   end
 #END TENS
 
   it ("concatinates word-string from ones-digit hash of value at index[2] point of array with  string 'hundred'") do
-    expect(100.three_digit_test()).to(eq("one hundred"))
+    expect(['0','0','1'].three_digit_test()).to(eq("one hundred"))
   end
   it ("concatinates word-string of value at index[2] with word-string of value at index points [1] and [0]") do
-    expect(333.three_digit_test()).to(eq("three hundred thirty three"))
+    expect(['3','3','3'].three_digit_test()).to(eq("three hundred thirty three"))
   end
 #END HUNDREDS
   # it ("concatinates word-string from ones-digit hash of value at index[3] point of array with  string 'thousand'") do
