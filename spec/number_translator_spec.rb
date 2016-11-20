@@ -33,6 +33,9 @@ describe('String#initial_test') do
   it ("returns word form of value for numbers with length 4-6") do
     expect(('999999999999').initial_test()).to(eq("nine hundred ninety nine billion nine hundred ninety nine million nine hundred ninety nine thousand nine hundred ninety nine"))
   end
+  it ("returns word form of value for numbers with length 4-6") do
+    expect(('400000000000').initial_test()).to(eq("4 hundred billion"))
+  end
 end
 
 describe('Array#three_digit_test') do
@@ -80,12 +83,12 @@ describe('Array#three_digit_test') do
     expect(['3','3','3'].three_digit_test()).to(eq("three hundred thirty three"))
   end
 #END HUNDREDS
-  # it ("concatinates word-string from ones-digit hash of value at index[3] point of array with  string 'thousand'") do
-  #   expect(1000.three_digit_test()).to(eq("one thousand"))
-  # end
-  # it ("concatinates word-string of value at index[3] with word-string of value at index points [2] through [0]") do
-  #   expect(1205.three_digit_test()).to(eq(["one thousand two hundred five"]))
-  # end
+  it ("concatinates word-string from ones-digit hash of value at index[3] point of array with  string 'thousand'") do
+    expect('1000'.initial_test()).to(eq("one thousand"))
+  end
+  it ("concatinates word-string of value at index[3] with word-string of value at index points [2] through [0]") do
+    expect('1205'.initial_test()).to(eq("one thousand two hundred five"))
+  end
 
 # #END Ones-Class of THOUSANDS
 #   it ("returns value at index[4] point of array (tens digit of input number)") do

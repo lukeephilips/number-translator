@@ -33,46 +33,51 @@ class Array
     preteensHash = {"10" => "ten","11" => "eleven","12" => "twelve"}
 
     prefixHash = {"2" => "twen", "3" => "thir","4" => "four","5" => "fif","6" => "six","7" => "seven","8" => "eight","9" => "nine"}
-
+    magnitudes = ['teen','ty','hundred']
     num_array= []
     output_word= ""
-
     num_array = self
     ones_word = onesHash.fetch(num_array[0])
     tens_word = ""
-    hundreds_word =""
-    thousands_word=""
+    hundreds_word = ""
+
     if num_array.length() >= 2
       tens_digit = ""
       tens_digit_int = tens_digit.concat(num_array[1]+ num_array[0]).to_i
 
-        if tens_digit_int >= 10 and tens_digit_int <= 12
+        if tens_digit_int.between?(10, 12)
           tens_word = preteensHash.fetch(tens_digit)
-        elsif tens_digit_int >= 13 and tens_digit_int <= 19
+        elsif tens_digit_int.between?(12, 19)
           tens_word = prefixHash.fetch(num_array[0]) + "teen"
-        elsif num_array[1].to_i >= 2 and num_array[0] == "0"
+        end
+
+        if num_array[1].to_i >= 2 and num_array[0] == "0"
           tens_word = prefixHash.fetch(num_array[1]) + "ty"
+
         elsif num_array[1].to_i >= 2
           tens_word = prefixHash.fetch(num_array[1]) + "ty" + " " + ones_word
         end
         output_word = tens_word
+    end
 
     if num_array.length() >= 3
       if num_array[1] == "0" and num_array[0] == "0"
-      hundreds_word = onesHash.fetch(num_array[2]) + " hundred"
+      hundreds_word = onesHash.fetch(num_array[2]) + " " + "hundred"
+
       elsif num_array[1] == "0" and num_array[0].to_i >= 1
-      hundreds_word = onesHash.fetch(num_array[2]) + " hundred " + ones_word
+        hundreds_word = onesHash.fetch(num_array[2]) + " hundred " + ones_word
+
       elsif num_array[1].to_i >= 1
-      hundreds_word = onesHash.fetch(num_array[2]) + " hundred " + tens_word
+        hundreds_word = onesHash.fetch(num_array[2]) + " hundred " + tens_word
       end
-    output_word = hundreds_word
+      output_word = hundreds_word
     end
-    else
-      if num_array == ["0"]
-        output_word = "zero"
-      else
-        output_word = ones_word
+
+    if num_array.length() == 1
+      if num_array == ['0']
+        ones_word = "zero"
       end
+      output_word = ones_word
     end
     output_word
   end
